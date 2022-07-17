@@ -7,23 +7,26 @@
     <div class="collapse navbar-collapse">
       <ul class="navbar-nav me-auto mb-2 mb-lg-0">
         <li class="nav-item">
-          <a class="nav-link active" aria-current="page" href="#">Recipes</a>
+          <a class="nav-link active" href="#" (click)="selectComp(1)">Recipes</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link" href="#">Shopping List</a>
+          <a class="nav-link" href="#" (click)="selectComp(2)">Shopping List</a>
         </li>
       </ul>
-      <ul class="nav navbar-nav navbar-right">
-        <li class="dropdown">
-          <a href="#" class="dropdown-toggle text-secondary" role="button">
-            Manage <span class="caret"></span>
-          </a>
-          <ul class="dropdown-menu" >
-            <li><a href="#">Save Data</a></li>
-            <li><a href="#">Fetch Data</a></li>
-          </ul>
-        </li>
-      </ul>
+      <div class="dropdown nav navbar-nav navbar-right">
+        <a class="btn bg-info dropdown-toggle" role="button" appDropdown>
+          Manage
+        </a>
+        <ul class="dropdown-menu" style="
+        position: absolute;
+        inset: 0px auto auto 0px;
+        margin: 0px 0px 5px 0px;
+        transform: translate(0px, 40px)
+      ">
+          <li><a class="dropdown-item" href="#">Save Data</a></li>
+          <li><a class="dropdown-item" href="#">Fecth Data</a></li>
+        </ul>
+      </div>
 
     </div>
   </div>

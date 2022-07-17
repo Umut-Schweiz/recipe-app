@@ -6,5 +6,15 @@ import { Component } from '@angular/core';
   styleUrls: ['./app.component.css']
 })
 export class AppComponent {
-  title = 'recipe-app';
+
+  loadPage:number = 1;
+
+
+  constructor() {
+    console.log(this.loadPage)
+  }
+
+  onNavigate(select: number){
+    this.loadPage = select;
+  }
 }
