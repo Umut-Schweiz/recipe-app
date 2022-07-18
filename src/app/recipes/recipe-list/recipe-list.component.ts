@@ -1,5 +1,7 @@
-import { Component, EventEmitter, OnInit, Output } from '@angular/core';
-import { Recipe } from '../recipe.model';
+import { Component, OnInit } from '@angular/core';
+import { ActivatedRoute, Router } from '@angular/router';
+import { RecipeService } from 'src/app/services/recipe.service';
+import { Recipe } from '../../shared/recipe.model';
 
 @Component({
   selector: 'app-recipe-list',
@@ -7,29 +9,22 @@ import { Recipe } from '../recipe.model';
   styleUrls: ['./recipe-list.component.css']
 })
 export class RecipeListComponent implements OnInit {
-
-  @Output() recipeWasSelected = new EventEmitter<Recipe>();
-
-  recipes: Recipe[] = [
-    {
-      name: 'recipe 1',
-      description: 'Recipe testing 1',
-      imageUrl:'https://images.unsplash.com/photo-1542010589005-d1eacc3918f2?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1492&q=80'
-    },
-    {
-      name: 'recipe 2',
-      description: 'Recipe testing 2',
-      imageUrl:'https://images.unsplash.com/photo-1542010589005-d1eacc3918f2?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1492&q=80'
-    }
-  ];
-
-  constructor() { }
+  recipes!: Recipe[];
+  constructor(
+    private recipeService: RecipeService,
+    private router:Router,
+    private route: ActivatedRoute) { }
 
   ngOnInit(): void {
+    this.getRecipe();
   }
 
-  onRecipeSelected(recipe: Recipe){
-    this.recipeWasSelected.emit(recipe)
+  getRecipe(): void {
+    this.recipes = this.recipeService.getRecipes()
+  }
+
+  onNewRecipe(){
+    this.router.navigate(['new'], { relativeTo: this.route});
   }
 
 }

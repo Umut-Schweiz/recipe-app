@@ -7,14 +7,8 @@ import { Component } from '@angular/core';
 })
 export class AppComponent {
 
-  loadPage:number = 1;
-
-
   constructor() {
-    console.log(this.loadPage)
+
   }
 
-  onNavigate(select: number){
-    this.loadPage = select;
-  }
 }

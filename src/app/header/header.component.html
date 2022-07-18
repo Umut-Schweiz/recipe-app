@@ -1,16 +1,18 @@
 <nav class="navbar navbar-expand-lg navbar-light bg-light mb-5">
   <div class="container-fluid">
-    <div class="navbar-header">
-      <a href="#" class="navbar-brand">Recipe Book</a>
+    <div class="navbar-header " >
+      <a routerLinkActive="active"
+      routerLink="/recipes"
+      [routerLinkActiveOptions]="{exact: true}" class="navbar-brand cursor-pointer">Recipe Book</a>
     </div>
 
     <div class="collapse navbar-collapse">
       <ul class="navbar-nav me-auto mb-2 mb-lg-0">
         <li class="nav-item">
-          <a class="nav-link active" href="#" (click)="selectComp(1)">Recipes</a>
+          <a class="nav-link" routerLinkActive="active" routerLink="/recipes">Recipes</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link" href="#" (click)="selectComp(2)">Shopping List</a>
+          <a class="nav-link"  routerLinkActive="active" [routerLink]="['shopping-list']" >Shopping List</a>
         </li>
       </ul>
       <div class="dropdown nav navbar-nav navbar-right">
@@ -19,12 +21,10 @@
         </a>
         <ul class="dropdown-menu" style="
         position: absolute;
-        inset: 0px auto auto 0px;
-        margin: 0px 0px 5px 0px;
-        transform: translate(0px, 40px)
+        transform: translate(-50px, 40px)
       ">
-          <li><a class="dropdown-item" href="#">Save Data</a></li>
-          <li><a class="dropdown-item" href="#">Fecth Data</a></li>
+          <li ><a class="dropdown-item" style="cursor: pointer;">Save Data</a></li>
+          <li><a class="dropdown-item" style="cursor: pointer;">Fecth Data</a></li>
         </ul>
       </div>
 
