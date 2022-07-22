@@ -44,6 +44,7 @@ export class ShoppingListService {
   updateIngredient(id:string, newIngredient:Ingredient){
      this.ingredients.find( ing => {
       if(ing.id === id){
+        ing.id = newIngredient.id;
         ing.name = newIngredient.name;
         ing.amount = newIngredient.amount;
       }

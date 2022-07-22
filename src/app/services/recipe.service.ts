@@ -8,7 +8,7 @@ import { Recipe } from '../shared/recipe.model';
 export class RecipeService {
 
   recipesChanged = new Subject<Recipe[]>();
-
+/*
   private recipes: Recipe[] = [
     {
       id: "1",
@@ -42,8 +42,16 @@ export class RecipeService {
       ]
     }
   ];
+  */
+
+  recipes:Recipe[] = [];
 
   constructor() { }
+
+  setRecipes(recipes: Recipe[]){
+    this.recipes = recipes;
+    this.recipesChanged.next(this.recipes.slice());
+  }
 
   getRecipes(): Recipe[] {
     return this.recipes.slice();
