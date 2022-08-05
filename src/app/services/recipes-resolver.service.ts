@@ -9,12 +9,12 @@ import { RecipeService } from './recipe.service';
   providedIn: 'root'
 })
 export class RecipesResolverService implements Resolve<Recipe[]> {
-
   constructor(
     private dataStorageService: DataStorageService,
     private recipesService: RecipeService) { }
 
   resolve(route: ActivatedRouteSnapshot, state: RouterStateSnapshot): Recipe[] | Observable<Recipe[]> | Promise<Recipe[]> {
+    //  a resolve() method that retrieves the data needed to activate the requested route.(in app-routing.module)
     const recipes = this.recipesService.getRecipes();
     if(recipes.length === 0){
       return this.dataStorageService.fetchRecipes();

@@ -25,12 +25,11 @@ export class ShoppingListComponent implements OnInit, OnDestroy {
       })
   }
 
+  onEditItem(id:string){
+    this.shoppingListService.startedEditing.next(id) // instead of using services we could use Input decorator
+  }
+
   ngOnDestroy(): void {
     this.ingredientChangeSub.unsubscribe(); // best practice - recommended pattern
   }
-
-  onEditItem(id:string){
-    this.shoppingListService.startedEditing.next(id)
-  }
-
 }

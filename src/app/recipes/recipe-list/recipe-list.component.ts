@@ -20,16 +20,16 @@ export class RecipeListComponent implements OnInit, OnDestroy {
     private route: ActivatedRoute) { }
 
   ngOnInit(): void {
-    this.subscribtion = this.recipeService.recipesChanged
+    this.subscribtion = this.recipeService.recipesChanged // it isn't necessary to subscribe - best practice- recommended aproach here
       .subscribe(
         (recipes: Recipe[]) => {
           this.recipes = recipes;
         }
       )
-    this.getRecipe();
+    this.getRecipes();
   }
 
-  getRecipe(): void {
+  getRecipes(): void {
     this.recipes = this.recipeService.getRecipes()
   }
 
