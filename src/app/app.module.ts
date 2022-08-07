@@ -5,26 +5,24 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { HeaderComponent } from './header/header.component';
 
-import { DropdownDirective } from './directives/dropdown.directive';
-import { ManageDropdownDirective } from './directives/manage-dropdown.directive';
-
 import { HttpClientModule, HTTP_INTERCEPTORS} from '@angular/common/http';
 import { AuthInterceptorService } from './services/auth-interceptor.service';
-import { RecipesModule } from './recipes/recipes.module';
-import { ShoppingListModule } from './shopping-list/shopping-list.module';
 import { AuthModule } from './auth/auth.module';
+import { ManageDropdownDirective } from './directives/manage-dropdown.directive';
+import { SharedModule } from './shared/shared.module';
 
 @NgModule({
   declarations: [
     AppComponent,
     HeaderComponent,
-    ManageDropdownDirective
+    ManageDropdownDirective,
   ],
   imports: [
     BrowserModule,
     HttpClientModule,
     AppRoutingModule, // because of lazzy loading i didnt add ShoppingListModule and RecipesModule into here
-    AuthModule
+    AuthModule,
+    SharedModule
   ],
   providers: [{ provide: HTTP_INTERCEPTORS, useClass:AuthInterceptorService, multi:true }],
   bootstrap: [AppComponent]

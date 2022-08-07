@@ -3,6 +3,8 @@ import { Injectable } from '@angular/core';
 import { Router } from '@angular/router';
 import { catchError, throwError, tap, BehaviorSubject} from 'rxjs';
 import { AuthResponseData } from '../shared/auth-response.model';
+import { environment } from '../../environments/environment'
+
 import { User } from '../shared/user.model';
 
 @Injectable({
@@ -20,7 +22,7 @@ export class AuthService {
     private router: Router) { }
 
   signup(email: string, password: string) {
-    return this.http.post<AuthResponseData>('https://identitytoolkit.googleapis.com/v1/accounts:signUp?key=AIzaSyBiZJZgFbso1tzaL-ii2-0EZNJAsw9BREQ',
+    return this.http.post<AuthResponseData>('https://identitytoolkit.googleapis.com/v1/accounts:signUp?key=' + environment.firebaseAPIKey,
       {
         email: email,
         password: password,
@@ -35,7 +37,7 @@ export class AuthService {
   }
 
   login(email: string, password: string) {
-    return this.http.post<AuthResponseData>('https://identitytoolkit.googleapis.com/v1/accounts:signInWithPassword?key=AIzaSyBiZJZgFbso1tzaL-ii2-0EZNJAsw9BREQ',
+    return this.http.post<AuthResponseData>('https://identitytoolkit.googleapis.com/v1/accounts:signInWithPassword?key=' + environment.firebaseAPIKey,
       {
         email: email,
         password: password,
