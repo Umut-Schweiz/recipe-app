@@ -1,6 +1,6 @@
 # RecipeApp
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 14.0.2.
+https://recipe-app-3bb4b.web.app
 
 ## Development server
 
